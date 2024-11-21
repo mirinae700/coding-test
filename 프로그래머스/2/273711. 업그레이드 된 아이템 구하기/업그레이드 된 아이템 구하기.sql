@@ -1,10 +1,9 @@
 -- 코드를 작성해주세요
-SELECT T.item_id, I.item_name, I.rarity
-FROM (
-    SELECT A.item_id
-    FROM item_tree A, item_info B
-    WHERE A.parent_item_id = B.item_id
-    AND B.rarity = 'RARE'
-) T, item_info I
-WHERE T.item_id = I.item_id
-ORDER BY item_id DESC;
+SELECT  INFO.item_id,
+        INFO.item_name,
+        INFO.rarity
+FROM    item_info INFO 
+        JOIN item_tree TREE
+        ON INFO.item_id = TREE.item_id
+WHERE TREE.parent_item_id IN (SELECT item_id FROM item_info WHERE rarity = 'RARE')
+ORDER BY 1 DESC;
