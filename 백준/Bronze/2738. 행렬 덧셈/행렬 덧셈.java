@@ -4,7 +4,6 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main {
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -14,7 +13,7 @@ public class Main {
         for (int i = 0; i < array.length; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 0; j < array[0].length; j++) {
-                array[i][j] += Integer.parseInt(st.nextToken());
+                array[i][j] = Integer.parseInt(st.nextToken());
             }
         }
 
