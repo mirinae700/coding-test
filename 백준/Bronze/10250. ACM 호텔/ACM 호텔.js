@@ -14,7 +14,7 @@ const testCase = Number(input[0]);
 for (let t = 1; t <= testCase; t++) {
     const [h, w, n] = input[t].split(' ').map(Number); // 층수, 방수, 손님순서
     let room = 0;
-    let hight = 1;
+    let hight = 0;
 
     if (n > h) {
         room += Math.ceil(n / h);
@@ -22,7 +22,7 @@ for (let t = 1; t <= testCase; t++) {
         if (hight === 0) hight = h;
     } else {
         room = 1;
-        hight += n - 1;
+        hight += n;
     }
 
     let result = hight + '' + (room < 10 ? '0' + room : room);
