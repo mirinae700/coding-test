@@ -6,13 +6,16 @@ const arr = input[1].split(' ').map(Number);
 
 let result = 0;
 for (const num of arr) {
-    let flag = true;
-    for (let i = 2; i <= 1000; i++) {
-        if ((num !== i && num % i === 0) || num === 1) {
-            flag = false;
-            break;
-        }
-    }
-    if (flag) result += 1;
+    if (check(num)) result += 1;
 }
 console.log(result);
+
+function check(num) {
+    if (num < 2) return false;
+    else {
+        for (let i = 2; i < num; i++) {
+            if (num % i === 0) return false;
+        }
+    }
+    return true;
+}
