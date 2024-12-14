@@ -6,8 +6,4 @@
 
 ### 📚 기술 스택
 - 프로그래밍 언어 : Java, JavaScript
-- 데이터베이스 : Oracle
-
-
-
-
+- 데이터베이스 : Oracle, MySQL
