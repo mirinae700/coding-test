@@ -1,24 +1,18 @@
 const fs = require('fs');
-const input = fs.readFileSync('dev/stdin').toString().split('\n');
+let weight = Number(fs.readFileSync('/dev/stdin').toString().trim());
 
-let n = Number(input[0]);
+// 3kg와 5kg 설탕봉지
+let result = 0;
 
-// 최대한 적은 : 5키로 설탕이 많아야한다.
-// n = 0 || 5의 배수 : count += n / 5
-// n <> 5의 배수 : 5의 배수, 0이 될때까지 3을 뺀다.
-// 그외 -1을 반환
-
-let bool = false;
-let count = 0;
-while (n >= 0) {
-    if (n % 5 === 0 || n === 0) {
-        count += parseInt(n / 5);
-        bool = true;
-        console.log(count);
-        break;
-    }
-    n -= 3;
-    count += 1;
+while (weight > 0) {
+  if (weight % 5 === 0) {
+    result += weight / 5;
+    break;
+  }
+  // 5로 나누어지지 않으면, 3빼보고 다시 5로 나누어 지는지 확인
+  // 단, 3뺐을때 0보다 작다면 결과는 -1
+  weight -= 3;
+  result += 1;
+  if (weight < 0) result = -1;
 }
-
-if (!bool) console.log(-1);
+console.log(result);
